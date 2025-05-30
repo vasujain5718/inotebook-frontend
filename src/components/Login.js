@@ -5,10 +5,11 @@ import {useNavigate} from 'react-router-dom'
     const onchange=(e)=>{
         setcred({...cred, [e.target.name] : e.target.value})
     }
+    const host = process.env.REACT_APP_API_URL;
     let history=useNavigate();
     const sub=async(e)=>{
         e.preventDefault();
-        const response = await fetch("http://localhost:5000/api/auth/login", {
+        const response = await fetch(`${host}/api/auth/login`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

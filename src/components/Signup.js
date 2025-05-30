@@ -5,10 +5,11 @@ const Signup = (props) => {
   const onchan = (e) => {
     setCredentials({ ...credentials, [e.target.id]: e.target.value });
   }
+  const host = process.env.REACT_APP_API_URL;
   const navigate = useNavigate();
   const onsubmit = async (e) => {
     e.preventDefault();
-    const response = await fetch("http://localhost:5000/api/auth/createUser", {
+    const response = await fetch(`${host}/api/auth/createUser`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
