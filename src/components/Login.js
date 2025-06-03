@@ -8,6 +8,8 @@ import {useNavigate} from 'react-router-dom'
     const host = process.env.REACT_APP_API_URL;
     let history=useNavigate();
     const sub=async(e)=>{
+    props.showAlert("Starting backend services, this might take 20-25 seconds. This will happen only once", "success", false)
+
         e.preventDefault();
         const response = await fetch(`${host}/api/auth/login`, {
             method: 'POST',

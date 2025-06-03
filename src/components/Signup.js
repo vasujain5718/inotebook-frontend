@@ -8,6 +8,7 @@ const Signup = (props) => {
   const host = process.env.REACT_APP_API_URL;
   const navigate = useNavigate();
   const onsubmit = async (e) => {
+    props.showAlert("Starting backend services, this might take 20-25 seconds. This will happen only once", "success", false)
     e.preventDefault();
     const response = await fetch(`${host}/api/auth/createUser`, {
       method: 'POST',
